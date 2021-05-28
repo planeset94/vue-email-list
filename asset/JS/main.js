@@ -4,7 +4,8 @@ const app = new Vue(
         el: '#root',
 
         data: {
-            email: '',
+            url: 'https://flynn.boolean.careers/exercises/api/random/mail',
+
             listEmail: [
 
             ],
@@ -25,15 +26,13 @@ const app = new Vue(
             for (let index = 0; index < 10; index++) {
 
                 axios
-                    .get('https://flynn.boolean.careers/exercises/api/random/mail')
+                    .get(this.url)
                     .then(response => {
-
-                        this.email = response.data.response;
-                        this.listEmail.push(this.email)
-
-
+                        this.listEmail.push(response.data.response)
 
                     })
+
+
             }
 
         },
